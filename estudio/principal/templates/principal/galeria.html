@@ -1,17 +1,27 @@
 {% extends 'principal/base.html' %}
-{% load custom_filters %}
+{% load static %}  <!-- Carga la etiqueta 'static' para acceder a los archivos estáticos -->
+
+{% block head %}
+  <!-- Incluir el archivo CSS de Lightbox2 -->
+  <link rel="stylesheet" href="{% static 'principal/lightbox/lightbox.min.css' %}">
+{% endblock %}
+
 {% block content %}
   <div class="gallery-container">
     {% for image in images %}
       <div class="gallery-item">
-        <img src="{{ MEDIA_URL }}{{ image.imagen.url }}" alt="{{ image.nombre }}">
+        <a href="{{ MEDIA_URL }}{{ image.imagen.url }}" data-lightbox="gallery">
+          <img src="{{ MEDIA_URL }}{{ image.imagen.url }}" alt="{{ image.nombre }}">
+        </a>
         <div class="image-details">
           <h3>{{ image.nombre }}</h3>
           <p>Autor: {{ image.autor }}</p>
           <p>Valor: {{ image.valor|format_value }}</p>
-
         </div>
       </div>
     {% endfor %}
   </div>
+
+  <!-- Incluir el archivo JavaScript de Lightbox2 -->
+  <script src="{% static 'principal/lightbox/lightbox.min.js' %}"></script>
 {% endblock %}
