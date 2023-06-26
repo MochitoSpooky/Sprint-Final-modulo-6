@@ -1,17 +1,38 @@
 {% extends 'principal/base.html' %}
 {% load custom_filters %}
+
 {% block content %}
   <div class="gallery-container">
     {% for image in images %}
       <div class="gallery-item">
-        <img src="{{ MEDIA_URL }}{{ image.imagen.url }}" alt="{{ image.nombre }}">
+        <img src="{{ MEDIA_URL }}{{ image.imagen.url }}" alt="{{ image.nombre }}" onclick="openPopup('{{ MEDIA_URL }}{{ image.imagen.url }}')">
         <div class="image-details">
           <h3>{{ image.nombre }}</h3>
           <p>Autor: {{ image.autor }}</p>
           <p>Valor: {{ image.valor|format_value }}</p>
-
+          <a href="{% url 'eliminar_imagen' image.id %}">Eliminar</a>
         </div>
       </div>
     {% endfor %}
   </div>
+
+  <script>
+    function openPopup(imageUrl) {
+      if (supportsWebP()) {
+        window.open(imageUrl, 'ImagePopup', 'width=800,height=600');
+      } else {
+        alert("Tu navegador no admite el formato WebP. Por favor, descarga la imagen.");
+      }
+    }
+
+    function supportsWebP() {
+      var elem = document.createElement('canvas');
+
+      if (!!(elem.getContext && elem.getContext('2d'))) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      }
+
+      return false;
+    }
+  </script>
 {% endblock %}

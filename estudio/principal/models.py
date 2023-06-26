@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
@@ -22,4 +23,7 @@ class Galeria(models.Model):
 
     def get_valor_personalizado(self):
         return "{:,.2f}".format(self.valor)
+    
+    def get_absolute_url(self):
+        return reverse('eliminar_imagen', args=[str(self.id)])
 

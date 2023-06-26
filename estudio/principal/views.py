@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from principal.models import Usuario
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import authenticate, login, logout
@@ -7,7 +7,6 @@ from .forms import UsuarioForm
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from functools import wraps
 from .models import Galeria
 from .forms import GaleriaForm
 
@@ -109,3 +108,15 @@ def subir_imagen(request):
     else:
         form = GaleriaForm()
     return render(request, 'principal/subir_imagen.html', {'form': form})
+
+@login_required
+@group_required('Moderador')
+def eliminar_imagen(request, imagen_id):
+    imagen = get_object_or_404(Galeria, id=imagen_id)
+    if request.method == 'POST':
+        imagen.delete()
+        return redirect('galeria')
+    return render(request, 'principal/eliminar_imagen.html', {'imagen': imagen})
+
+
+

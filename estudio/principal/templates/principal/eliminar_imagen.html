@@ -1,0 +1,15 @@
+{% extends 'principal/base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+  <div class="delete-image-container">
+    <div class="delete-image-box">
+      <h2>Eliminar Imagen</h2>
+      <p>¿Estás seguro de que deseas eliminar la imagen "{{ imagen.nombre }}"?</p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Eliminar</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

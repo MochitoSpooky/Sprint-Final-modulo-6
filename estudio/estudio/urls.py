@@ -19,4 +19,5 @@ urlpatterns = [
     path('accounts/profile/', views.profile_view, name='perfil'),
     path('galeria/', views.galeria, name='galeria'),
     path('subir_imagen/', views.subir_imagen, name='subir_imagen'),
+    path('galeria/eliminar/<int:imagen_id>/', views.eliminar_imagen, name='eliminar_imagen'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
