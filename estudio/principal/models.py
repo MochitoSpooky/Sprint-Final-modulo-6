@@ -20,4 +20,6 @@ class Galeria(models.Model):
     def get_autor_personalizado(self):
         return self.autor
 
+    def get_valor_personalizado(self):
+        return "{:,.2f}".format(self.valor)
 

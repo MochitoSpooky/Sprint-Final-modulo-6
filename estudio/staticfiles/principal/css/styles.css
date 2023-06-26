@@ -1,0 +1,266 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+/*imagen de fondo*/
+body {
+    background-image: url("/static/principal/img/fondo2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*configuracion de logo y titulo*/
+.navbar-brand{
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+.nav-item{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*configuarion de tabla de usuarios */
+.table-users {
+    background-color: rgba(255, 255, 255, 0.8); /* Color de fondo claro semitransparente */
+}
+
+.custom-title {
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.container {
+    flex: 1;
+}
+/*configuracion del saludo */
+.landing-header {
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+    text-shadow: 3px 3px 4px #262441; /* Color de margen en la letra */
+}
+
+.landing-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.landing-header p {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+/* Configuración del carrusel */
+.carousel-container {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo deseado del carrusel */
+    margin: 0 auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.267) !important; /* Color de fondo semi transparente del carrusel */
+    border-radius: 5px; /* Radio de los bordes redondeados */
+}
+
+.carousel-container .carousel-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 450px; /* Altura deseada de las imágenes */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: #000;
+    font-size: 2rem;
+    opacity: 1;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    color: #f0f0f0;
+}
+
+.carousel-container {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    opacity: 1;
+}
+/*configuracion del login y registro*/
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; /* Agregado para centrar el contenido */
+    
+}
+
+.login-table {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.login-table th {
+    text-align: right; 
+    padding-right: 10px;
+}
+
+.login-table td {
+    padding-left: 10px;
+}
+
+.login-table input[type="text"],
+.login-table input[type="password"] {
+    width: 80%; /* Hace que los campos de entrada ocupen todo el ancho disponible */
+}
+
+.btn-primary {
+    background-color: #4d4d4d;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #fd1717;
+}
+
+/*configuracion de la información del perfil*/
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .profile-table th, .profile-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .profile-table th {
+    background-color: #f2f2f2;
+  }
+/*otro */
+.profile-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  /* Estilos para el mensaje de error */
+  .error-container {
+    background-color: rgba(255, 255, 255, 0.651);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+  .error-title {
+    font-size: 24px;
+    color: #db0606;
+    text-align: center;
+  }
+  
+  .error-message {
+    font-size: 18px;
+    color: #000000;
+    text-align: center;
+  }
+/*configuracion para la pagina de subida de imagenes*/
+  .upload-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .upload-container form input[type="text"],
+  .upload-container form input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;  
+    font-size: 18px;
+  }
+  
+  .upload-container form {
+    display: inline-block;
+    text-align: left;
+    width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  
+  /* Opcional: Ajusta el tamaño del botón */
+  .upload-container form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #dc3545;
+  }
+
+/*formato imagen de galeria*/
+.gallery-item {
+  position: relative;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita que el fondo afecte la interacción con la imagen */
+}
+
+/*conmfiguracion de las imagenes de la galeria*/
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.gallery-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.image-details {
+  margin-top: 10px;
+}
